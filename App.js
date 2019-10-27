@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity, Platform } from 'react-native';
 
 import {createAppContainer} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
@@ -12,6 +12,15 @@ import Home from './src/pages/Home';
 import Itagro from './src/pages/Itagro';
 import Valores from './src/pages/Valores';
 import Servicos from './src/pages/Servicos';
+import Aeronaves from './src/pages/Aeronaves';
+import Contato from './src/pages/Contato';
+
+import Pulverizacao from './src/pages/Pulverizacao';
+import Adubacao from './src/pages/servicosPages/Adubacao';
+import Incendio from './src/pages/Incendio';
+import Pastagens from './src/pages/Pastagens';
+import Plantacao from './src/pages/servicosPages/Plantacao';
+
 
 //import Icon from 'react-native-vector-icons/FontAwesome';
  
@@ -83,9 +92,25 @@ const Valores_StackNavigator = createStackNavigator({
   },
 });
 
+const Aeronaves_StackNavigator = createStackNavigator({
+  fourth: {
+    screen: Aeronaves,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Aeronaves',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  
+});
+
+
 
 const Servicos_StackNavigator = createStackNavigator({
-  fourth: {
+  sixth: {
     screen: Servicos,
     navigationOptions: ({ navigation }) => ({
       title: 'Serviços',
@@ -96,8 +121,80 @@ const Servicos_StackNavigator = createStackNavigator({
       headerTintColor: '#fff',
     }),
   },
+  
 });
- 
+
+const Pulverizacao_Stack = createStackNavigator({
+  seventh:{
+    screen: Pulverizacao,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Pulverização',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const Adubacao_Stack = createStackNavigator({
+  eith:{
+    screen: Adubacao,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Adubação',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const Pastagens_Stack = createStackNavigator({
+  seventh:{
+    screen: Pastagens,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Pastagens',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const Incendio_Stack = createStackNavigator({
+  seventh:{
+    screen: Incendio,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Combate à Incêndios',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const Plantacao_Stack = createStackNavigator({
+  ninth:{
+    screen: Plantacao,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Plantação de Arroz',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+
 const DrawerNavigatorExample = createDrawerNavigator({
  
   Screen1: {
@@ -129,7 +226,7 @@ const DrawerNavigatorExample = createDrawerNavigator({
     },
   },
   Aeronaves: {
-    screen: Servicos_StackNavigator,
+    screen: Aeronaves_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Aeronaves',
       drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
@@ -146,6 +243,41 @@ const DrawerNavigatorExample = createDrawerNavigator({
     screen: Servicos_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Contato',
+      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+    },
+  },
+  Pulverizacao: {
+    screen: Pulverizacao_Stack,
+    navigationOptions: {
+      drawerLabel: 'Pulverização',
+      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+    },
+  },
+  Adubacao: {
+    screen: Adubacao_Stack,
+    navigationOptions: {
+      drawerLabel: 'Adubação',
+      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+    },
+  },
+  Pastagens: {
+    screen: Pastagens_Stack,
+    navigationOptions: {
+      drawerLabel: 'Pastagens',
+      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+    },
+  },
+  Incencio: {
+    screen: Incendio_Stack,
+    navigationOptions: {
+      drawerLabel: 'Combate à Incêndio',
+      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+    },
+  },
+  Plantacao: {
+    screen: Plantacao_Stack,
+    navigationOptions: {
+      drawerLabel: 'Plantação de Arroz',
       drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
     },
   },

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, ImageBackground, Button } from 'react-native';
  
 export default class Home extends Component {
   render() {
@@ -11,7 +11,7 @@ export default class Home extends Component {
       >
         <View style={{flex:1, alignItems:'center', marginTop:10}}>
             <Text style={{fontSize:20, fontWeight:'bold', color:'#000'}}>Últimas Notícias</Text>
-
+            
         </View>
 
       </ImageBackground>

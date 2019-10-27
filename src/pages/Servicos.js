@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, ImageBackground, TouchableOpacity, Button } from 'react-native';
 import styles from '../styles/servicos.styles';
-import { SliderBox } from 'react-native-image-slider-box';
-import { Card } from 'react-native-elements';
-import { NavigationActions, StackActions } from "react-navigation";
 import CardView from 'react-native-cardview'
+
 
 export default class Servicos extends Component {
 
@@ -12,20 +10,25 @@ export default class Servicos extends Component {
 
         const preventDoubleTapHack = (component: any, doFunc: Function) => {
             if (!component.wasClickedYet__ULJyRdAvrHZvRrT7) {
-              //  eslint-disable-next-line no-param-reassign
-              component.wasClickedYet__ULJyRdAvrHZvRrT7 = true;
-              setTimeout(() => {
                 //  eslint-disable-next-line no-param-reassign
-                component.wasClickedYet__ULJyRdAvrHZvRrT7 = false;
-              }, 700);
-              doFunc();
+                component.wasClickedYet__ULJyRdAvrHZvRrT7 = true;
+                setTimeout(() => {
+                    //  eslint-disable-next-line no-param-reassign
+                    component.wasClickedYet__ULJyRdAvrHZvRrT7 = false;
+                }, 700);
+                doFunc();
             }
-          };
+        };
+        const { navigate } = this.props.navigation;
         return (
             <View style={styles.MainContainer}>
 
-                <View >
-
+                {/* CARD DE PULVERIZAÇÃO */}
+                <TouchableOpacity
+                    onPress={() =>
+                        preventDoubleTapHack(this, () => this.props.navigation.navigate("Pulverizacao"))
+                    }
+                >
                     <CardView
                         style={{ marginTop: 10 }}
                         cardElevation={2}
@@ -33,26 +36,26 @@ export default class Servicos extends Component {
                         cornerRadius={5}>
                         <ImageBackground source={require('../images/pulverizacao.jpg')}
                             style={{ width: 320, height: 120 }}
-                            onPress={() =>
-                                preventDoubleTapHack(this, () => this.props.navigation.navigate("Itagro"))
-                              }
-                            >
+
+                        >
 
                         </ImageBackground>
                         <View style={{ alignItems: 'center' }}>
+
                             <Text style={{ fontSize: 22 }}>Pulverização</Text>
                         </View>
                     </CardView>
 
-                </View>
+                </TouchableOpacity>
 
+                {/* VIEW PARA CARDS LATERAIS */}
                 <View style={styles.containerBox}>
-                    
-                    <TouchableOpacity style={{padding:10}}
-                        onPress={() =>
-                            preventDoubleTapHack(this, () => this.props.navigation.navigate("Itagro"))
-                          }
+
+                    {/* CARD DE ADUBAÇÃO */}
+                    <TouchableOpacity style={{ padding: 10 }}
+                       onPress={() =>navigate('Adubacao')}
                     >
+                        
                         <CardView
                             style={{ marginTop: 10 }}
                             cardElevation={2}
@@ -67,7 +70,13 @@ export default class Servicos extends Component {
                             </View>
                         </CardView>
                     </TouchableOpacity>
-                    <View style={{padding:10}}>
+
+                    {/* CARD PARA PASTAGENS */}
+                    <TouchableOpacity style={{ padding: 10 }}
+                    onPress={() =>
+                        preventDoubleTapHack(this, () => this.props.navigation.navigate("Pastagens"))
+                    }
+                    >
                         <CardView
                             style={{ marginTop: 10 }}
                             cardElevation={2}
@@ -81,28 +90,40 @@ export default class Servicos extends Component {
                                 <Text style={{ fontSize: 22 }}>Pastagens</Text>
                             </View>
                         </CardView>
-                    </View>
+                    </TouchableOpacity>
                 </View>
+
+                {/* SEGUNDA VIEW PARA CARDS LATERAIS */}
                 <View style={styles.containerBox}>
-                    <View style={{padding:10}}>
+
+                    {/* CARD PARA COMBATENS INCÊNCIDIOS */}
+                    <TouchableOpacity style={{ padding: 10 }}
+                     onPress={() =>navigate('Incendio')}
+                    >
                         <CardView
-                            
+
                             cardElevation={2}
                             cardMaxElevation={2}
                             cornerRadius={5}>
                             <ImageBackground source={require('../images/incendio.jpg')}
                                 style={{ width: 150, height: 150 }}
-                                >
+                            >
 
                             </ImageBackground>
                             <View style={{ alignItems: 'center' }}>
                                 <Text style={{ fontSize: 15 }}>Combate à Incêncios</Text>
                             </View>
                         </CardView>
-                    </View>
-                    <View style={{padding:10}}>
+                    </TouchableOpacity>
+
+                    {/* CARD PARA PLANTAÇÃO DE ARROZ */}
+                    <TouchableOpacity style={{ padding: 10 }}
+                    onPress={() =>
+                        preventDoubleTapHack(this, () => this.props.navigation.navigate("Plantacao"))
+                    }
+                    >
                         <CardView
-                           
+
                             cardElevation={2}
                             cardMaxElevation={2}
                             cornerRadius={5}>
@@ -111,10 +132,11 @@ export default class Servicos extends Component {
 
                             </ImageBackground>
                             <View style={{ alignItems: 'center' }}>
-                                <Text style={{ fontSize: 15 }}>Platação de Arroz</Text>
+                                <Text style={{ fontSize: 15 }}>Plantação de Arroz</Text>
                             </View>
                         </CardView>
-                    </View>
+                    </TouchableOpacity>
+                    
                 </View>
 
 
