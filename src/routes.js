@@ -1,44 +1,45 @@
 import React from 'react';
 
 import { createAppContainer } from 'react-navigation';
-import {createDrawerNavigator} from 'react-navigation-drawer';
+import {createStackNavigator} from 'react-navigation-drawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont();
 
 
-import Home from './pages/Home';
-import Itagro from './pages/Itagro';
-import Notices from './pages/Notices';
+
+import Servicos from './pages/Servicos';
+import Adubacao from './pages/servicosPages/Adubacao';
 
  
+
   
 //   const App = createAppContainer(MainNavigator);
   
 //   export default App;
 
-// const mainNavigation = createStackNavigator({
-//     Home: {screen: Home},
-//     Itagro: {screen: Itagro},
-//   });
-
-
-const mainNavigation = createDrawerNavigator({
-    Home: {
-      screen: Home,
-      navigationOptions: () => ({
-        drawerIcon: <Icon name="adn" size={20} color="#7159c1" />,
-        
-      }),
-    },
-    Itagro: {
-      screen: Itagro,
-      navigationOptions: () => ({
-        
-        drawerIcon: <Icon name="rocket" size={20} color="#7159c1" />,
-      }),
-    },
+const mainNavigation = createStackNavigator({
+    Servicos,
+    Adubacao,
   });
+
+
+// const mainNavigation = createDrawerNavigator({
+//     Home: {
+//       screen: Home,
+//       navigationOptions: () => ({
+//         drawerIcon: <Icon name="adn" size={20} color="#7159c1" />,
+        
+//       }),
+//     },
+//     Itagro: {
+//       screen: Itagro,
+//       navigationOptions: () => ({
+        
+//         drawerIcon: <Icon name="rocket" size={20} color="#7159c1" />,
+//       }),
+//     },
+//   });
   
   export default createAppContainer(mainNavigation);
 
