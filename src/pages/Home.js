@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ImageBackground, Button } from 'react-native';
- 
+import ContatoWhats from '../Componentes/ContatoWhats' 
+
 export default class Home extends Component {
   render() {
     return (
@@ -11,7 +12,7 @@ export default class Home extends Component {
       >
         <View style={{flex:1, alignItems:'center', marginTop:10}}>
             <Text style={{fontSize:20, fontWeight:'bold', color:'#000'}}>Últimas Notícias</Text>
-            
+            <ContatoWhats />
         </View>
 
       </ImageBackground>

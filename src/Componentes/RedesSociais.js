@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ImageBackground, Button, Linking, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, Button, Linking, TouchableOpacity, Image } from 'react-native';
 import { Icon } from 'react-native-elements'
 import cores from '../constaints/colors'
-
+import Styles from '../styles/contato.styles';
 
 
 export default class ContatoWhats extends Component {
@@ -22,25 +22,28 @@ export default class ContatoWhats extends Component {
 
         return (
 
-            <View style={{ marginTop: 30, justifyContent: 'space-around', flexDirection: 'row' }}>
+            <View style={{ marginTop: 30, justifyContent: 'space-around', flexDirection: 'row', width: '80%' }}>
                 <TouchableOpacity
-                  onPress={() => {
-                    Linking.openURL(
-                        'http://api.whatsapp.com/send?phone=55' + 53984572137
-                    );
-                }}
+                    onPress={() => {
+                        Linking.openURL(
+                            'http://api.whatsapp.com/send?phone=55' + 53984572137
+                        );
+                    }}
                 >
-                    <Icon name='logo-whatsapp' type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} />
+                    {/* <Icon name='logo-whatsapp' type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} /> */}
+                    <Image source={require('../images/whatsapp.png')} style={Styles.ImagemContato} />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Icon name='logo-facebook' type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} />
+                    {/* <Icon name='logo-facebook' type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} /> */}
+                    <Image source={require('../images/facebook.png')} style={Styles.ImagemContato} />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Icon name='logo-youtube'
-                        type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} />
+                    {/* <Icon name='logo-youtube' type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} /> */}
+                    <Image source={require('../images/youtube.png')} style={Styles.ImagemContato} />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Icon name="logo-instagram" type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} />
+                    {/* <Icon name="logo-instagram" type='ionicon' size={40} color={cores.cores.colorNumeroClassificado} /> */}
+                    <Image source={require('../images/instagram.png')} style={Styles.ImagemContato} />
                 </TouchableOpacity>
 
 
@@ -50,13 +53,3 @@ export default class ContatoWhats extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    MainContainer: {
-        flex: 1,
-        paddingTop: 20,
-        alignItems: 'center',
-        marginTop: 50,
-        justifyContent: 'center',
-    },
-});

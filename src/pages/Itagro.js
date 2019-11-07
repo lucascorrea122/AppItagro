@@ -10,13 +10,13 @@ import ItagroImg1 from '../images/logo-itagro.png';
 
 
 export default class Itagro extends Component {
-
+  // source={require('../images/pulverizacao.jpg')}
   
   constructor(props) {
     super(props);
     this.state = {
       images: [
-       
+    
         'https://source.unsplash.com/1024x768/?water',
         'https://source.unsplash.com/1024x768/?girl',
         'https://source.unsplash.com/1024x768/?tree'

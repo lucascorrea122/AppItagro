@@ -4,6 +4,7 @@ import { View, Image, TouchableOpacity, Platform } from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import cores from './src/constaints/colors';
 import { Icon } from 'react-native-elements'
@@ -13,6 +14,8 @@ import Itagro from './src/pages/Itagro';
 import Valores from './src/pages/Valores';
 import Servicos from './src/pages/Servicos';
 import Aeronaves from './src/pages/Aeronaves';
+import AeronaveIpanemaG from './src/pages/AeronaveIpanemaG';
+import AeronaveIpanemaE from './src/pages/AeronaveIpanemaE';
 import Contato from './src/pages/Contato';
 
 import Pulverizacao from './src/pages/Pulverizacao';
@@ -93,10 +96,10 @@ const Valores_StackNavigator = createStackNavigator({
 });
 
 const Aeronaves_StackNavigator = createStackNavigator({
-  fourth: {
+  TabScreen: {
     screen: Aeronaves,
     navigationOptions: ({ navigation }) => ({
-      title: 'Aeronaves',
+      title: 'AirTractor AT-402B',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: cores.cores.ColorHeader,
@@ -107,7 +110,73 @@ const Aeronaves_StackNavigator = createStackNavigator({
   
 });
 
+const AeronaveIpanemaG_StackNavigator = createStackNavigator({
+  TabScreen: {
+    screen: AeronaveIpanemaG,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Embraer - Ipanema-Gasolina',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  
+});
 
+const AeronaveIpanemaE_StackNavigator = createStackNavigator({
+  TabScreen: {
+    screen: AeronaveIpanemaE,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Embraer - Ipanema-Etanol',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  
+});
+
+const Contato_StackNavigator = createStackNavigator({
+  TabScreen: {
+    screen: Contato,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Contate-nos',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  
+});
+
+const TabArenonaves = createBottomTabNavigator({
+      ' AT-402B': Aeronaves_StackNavigator,
+      'Ipanema G.': AeronaveIpanemaG_StackNavigator,
+      'Ipanema E.': AeronaveIpanemaE_StackNavigator,
+    }, 
+    {
+    tabBarOptions: {
+      initialRouteName: 'Airtractor AT-402B',
+      labelStyle: {
+        fontSize: 18,
+      },
+      style: {
+        height: 40,
+        alignItems:'center',
+        justifyContent:'center',
+        
+      },
+      
+    },
+   
+  }
+);
 
 const Servicos_StackNavigator = createStackNavigator({
   sixth: {
@@ -121,78 +190,60 @@ const Servicos_StackNavigator = createStackNavigator({
       headerTintColor: '#fff',
     }),
   },
-  
-});
-
-const Pulverizacao_Stack = createStackNavigator({
-  seventh:{
+  Pulverizacao:{
     screen: Pulverizacao,
     navigationOptions: ({ navigation }) => ({
       title: 'Pulverização',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: cores.cores.ColorHeader,
       },
       headerTintColor: '#fff',
     }),
   },
-});
-
-const Adubacao_Stack = createStackNavigator({
-  eith:{
+  Adubacao:{
     screen: Adubacao,
     navigationOptions: ({ navigation }) => ({
       title: 'Adubação',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: cores.cores.ColorHeader,
       },
       headerTintColor: '#fff',
     }),
   },
-});
-
-const Pastagens_Stack = createStackNavigator({
-  seventh:{
+  Pastagens:{
     screen: Pastagens,
     navigationOptions: ({ navigation }) => ({
       title: 'Pastagens',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: cores.cores.ColorHeader,
       },
       headerTintColor: '#fff',
     }),
   },
-});
-
-const Incendio_Stack = createStackNavigator({
-  seventh:{
+  Incendio:{
     screen: Incendio,
     navigationOptions: ({ navigation }) => ({
       title: 'Combate à Incêndios',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: cores.cores.ColorHeader,
       },
       headerTintColor: '#fff',
     }),
   },
-});
-
-const Plantacao_Stack = createStackNavigator({
-  ninth:{
+  Plantacao:{
     screen: Plantacao,
     navigationOptions: ({ navigation }) => ({
       title: 'Plantação de Arroz',
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: cores.cores.ColorHeader,
       },
       headerTintColor: '#fff',
     }),
   },
+  
+  
 });
+
 
 
 const DrawerNavigatorExample = createDrawerNavigator({
@@ -208,28 +259,28 @@ const DrawerNavigatorExample = createDrawerNavigator({
     screen: Itagro_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Sobre Nós',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+      drawerIcon: <Icon name="information-variant" type='material-community' size={20} color={cores.cores.colorNumeroClassificado} />
     },
   },
   Valores: {
     screen: Valores_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Nossos Valores',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+      drawerIcon: <Image source={require('./src/images/value.png')} style={{width:20, height:20, color:'#176eef'}}/>
     },
   },
   Servicos: {
     screen: Servicos_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Serviços',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+      drawerLabel: 'Serviçoss',
+      drawerIcon: <Icon name='gears' type='font-awesome' size={20} color={cores.cores.colorNumeroClassificado} />
     },
   },
   Aeronaves: {
-    screen: Aeronaves_StackNavigator,
+    screen: TabArenonaves,
     navigationOptions: {
       drawerLabel: 'Aeronaves',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+      drawerIcon: <Icon name='plane' type='font-awesome' size={20} color={cores.cores.colorNumeroClassificado} />
     },
   },
   Noticias: {
@@ -240,47 +291,18 @@ const DrawerNavigatorExample = createDrawerNavigator({
     },
   },
   Contato: {
-    screen: Servicos_StackNavigator,
+    screen: Contato_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Contato',
       drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
     },
   },
-  Pulverizacao: {
-    screen: Pulverizacao_Stack,
-    navigationOptions: {
-      drawerLabel: 'Pulverização',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
-    },
-  },
-  Adubacao: {
-    screen: Adubacao_Stack,
-    navigationOptions: {
-      drawerLabel: 'Adubação',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
-    },
-  },
-  Pastagens: {
-    screen: Pastagens_Stack,
-    navigationOptions: {
-      drawerLabel: 'Pastagens',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
-    },
-  },
-  Incencio: {
-    screen: Incendio_Stack,
-    navigationOptions: {
-      drawerLabel: 'Combate à Incêndio',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
-    },
-  },
-  Plantacao: {
-    screen: Plantacao_Stack,
-    navigationOptions: {
-      drawerLabel: 'Plantação de Arroz',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
-    },
-  },
-});
+
+},{
+  drawerType: "front",
+  drawerWidth: 230,
+  gestureHandlerProps: true
+}
+);
  
 export default createAppContainer(DrawerNavigatorExample);

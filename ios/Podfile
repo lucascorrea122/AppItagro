@@ -39,6 +39,8 @@ target 'appItagro' do
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'appItagroTests' do
     inherit! :search_paths
     # Pods for testing

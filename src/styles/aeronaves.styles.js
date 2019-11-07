@@ -5,18 +5,18 @@ const platform = Platform.OS;
 export default StyleSheet.create({ 
     MainContainer: {
         flex: 1,
-        
+        paddingTop: 20,
         alignItems: 'center',
         
     },
     aeronavesContainer:{
-       
-        
+        alignItems: 'center', 
+        justifyContent: 'space-around'
     },
     aeronavesButton:{
         width: '33.3%', height: 50, backgroundColor: 'skyblue', justifyContent:'center', alignItems:'center' 
     },
-     slider: { backgroundColor: '#000', height: 350 },
+    slider: { backgroundColor: '#000', height: 350 },
     content1: {
       width: '100%',
       height: 50,
@@ -64,23 +64,13 @@ export default StyleSheet.create({
       width: 100,
       height: 100,
     },
-    textTitleCollapse:{
-        fontSize:20,
-        fontWeight:'bold',
-    },
     textDefinicao:{
-        fontWeight:'bold',
-        fontSize: 15,
-    },
-    textItem:{
-
-    },
-    textItem2:{
-        fontSize:8
+      fontWeight:'bold'
     },
     viewItem:{
-        flexDirection: 'row',
+      flexDirection:'row'
     }
+   
 
 
 });
