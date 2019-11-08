@@ -35,12 +35,8 @@ export default class Itagro extends Component {
       <View style={styles.MainContainer}>
         {/* <Text style={{ fontSize: 23, fontWeight: 'bold' }}> Sobre Nós </Text> */}
         <View style={styles.ContainerItagro}>
-          <Text>
-
-            A Itagro conta com uma equipe de profissionais altamente qualificados e experientes dentro do seu quadro de funcionários.
-            Ao total são seis pilotos e dez técnicos agrícolas que também estão com o curso de aviação agrícola em execução com o objetivo de garantir
-            uma aviação de qualidade mantendo o compromisso com a excelência na prestação de seus serviços.
-          </Text>
+          
+          
           <View style={{ width: '100%', }}>
             <TouchableOpacity style={{ padding: 10 }}
               onPress={() => navigate('Historia')}
