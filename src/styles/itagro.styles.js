@@ -17,6 +17,23 @@ export default StyleSheet.create({
     ContainerItagro:{
         alignItems: 'center',
         padding: 20,
+        width:'100%'
+    },
+    CardButton:{
+        resizeMode: 'contain',
+         marginTop: 20, 
+         alignItems: 'center', 
+         height: 90,
+    },
+    ImageButton:{
+        borderRadius:10,
+        width:'100%',
+        height:'100%'
+    },
+    TextCardButton:{
+        fontSize:25,
+        color:'white',
+        fontWeight:'bold',
     }
 
 

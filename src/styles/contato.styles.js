@@ -12,6 +12,7 @@ export default StyleSheet.create({
        backgroundColor:"#f1f1f1",
        marginHorizontal:20,
        borderRadius:15,
+       
    },
    ItensContent:{
        flexDirection:'row',
@@ -22,6 +23,9 @@ export default StyleSheet.create({
    ImagemContato:{
        width:50,
        height: 50,
+   },
+   TextContent:{
+       marginLeft: 15
    }
    
 

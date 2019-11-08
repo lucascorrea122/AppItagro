@@ -18,6 +18,10 @@ import AeronaveIpanemaG from './src/pages/AeronaveIpanemaG';
 import AeronaveIpanemaE from './src/pages/AeronaveIpanemaE';
 import Contato from './src/pages/Contato';
 
+import Historia from './src/pages/Historia';
+import Diferenciais from './src/pages/Diferenciais';
+import Equipe from './src/pages/Equipe';
+
 import Pulverizacao from './src/pages/Pulverizacao';
 import Adubacao from './src/pages/servicosPages/Adubacao';
 import Incendio from './src/pages/Incendio';
@@ -66,11 +70,44 @@ const FirstActivity_StackNavigator = createStackNavigator({
  
 const Itagro_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
-  Second: {
+  Itagro: {
     screen: Itagro,
     navigationOptions: ({ navigation }) => ({
       title: 'Sobre Nós',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  Historia: {
+    screen: Historia,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Nossa História',
+      // headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  Diferenciais: {
+    screen: Diferenciais,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Nossos Diferenciais',
+      // headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: cores.cores.ColorHeader,
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  Equipe: {
+    screen: Equipe,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Nossa Equipe',
+      // headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: cores.cores.ColorHeader,
       },
@@ -294,7 +331,7 @@ const DrawerNavigatorExample = createDrawerNavigator({
     screen: Contato_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Contato',
-      drawerIcon: <Icon name="adn" size={20} color={cores.cores.colorNumeroClassificado} />
+      drawerIcon: <Icon name="contacts" type='antdesign' size={20} color={cores.cores.colorNumeroClassificado} />
     },
   },
 
